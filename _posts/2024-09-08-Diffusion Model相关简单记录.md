@@ -4,8 +4,19 @@ layout: post
 title: "测试测试"
 ---
 
-<video width="100%" height="240" controls>
-  <source src="https://howieli-blog.oss-cn-beijing.aliyuncs.com/demo_2X_50fps.mp4" type="video/mp4">
-</video>
+<div style="display: flex; justify-content: space-between;">
+  <div style="width: 48%;">
+    <video width="100%" controls>
+      <source src="https://image.howieli.tech/output.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>视频 1 的说明文字</p>
+  </div>
 
-测试视频播放
+  <div style="width: 48%;">
+    <video width="100%" controls>
+      <source src="https://image.howieli.tech/output.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>视频 2 的说明文字</p>
+  </div>
