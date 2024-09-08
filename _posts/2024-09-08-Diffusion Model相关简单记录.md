@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Diffusion Model相关简单记录"
+title: "测试测试"
 ---
 
 <video width="100%" height="240" controls>
