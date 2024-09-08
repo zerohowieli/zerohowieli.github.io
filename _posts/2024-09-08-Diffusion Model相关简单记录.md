@@ -1,22 +1,133 @@
 ---
 
 layout: post
-title: "测试测试"
+title: "2024-09-08"
 ---
 
-<div style="display: flex; justify-content: space-between;">
-  <div style="width: 48%;">
-    <video width="100%" controls>
-      <source src="https://image.howieli.tech/output.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <p>视频 1 的说明文字</p>
-  </div>
+### [Practical-RIFE](https://github.com/hzwer/Practical-RIFE)
 
-  <div style="width: 48%;">
+在视频中现有帧之间插入中间帧提高视频帧率，主要技术 `RIFE`和`SAFA`。
+
+- 项目地址：https://github.com/hzwer/Practical-RIFE
+- SAFA 本地电脑运行有点慢，所以没提供运行结果
+
+#### RIFE
+
+> 文档中说明了现实场景下推荐`4.18`的模型，所以后面都是基于这个模型执行。
+
+##### 演示视频
+
+对项目中提供的 `demo.mp4(25fps)`测试，处理为 `50fps`。
+
+```shell
+python3 inference_video.py --multi=2 --video=demo.mp4 # 处理为 50fps
+```
+
+效果如下：
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+  <div style="width: 48%; margin-bottom: 20px; text-align: center;">
     <video width="100%" controls>
-      <source src="https://image.howieli.tech/output.mp4" type="video/mp4">
+      <source src="https://image.howieli.tech/202409082232000.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <p>视频 2 的说明文字</p>
+    <p>原视频 25fps</p>
   </div>
+  <div style="width: 48%; margin-bottom: 20px; text-align: center;">
+    <video width="100%" controls>
+      <source src="https://image.howieli.tech/202409082233000.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>处理后 50fps</p>
+  </div>
+</div>
+
+##### 测试视频
+
+将自行准备的测试视频处理为 `60fps`。
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+  <div style="width: 48%; margin-bottom: 20px; text-align: center;">
+    <video width="100%" controls>
+      <source src="https://image.howieli.tech/202409082328000.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>原视频 30fps</p>
+  </div>
+  <div style="width: 48%; margin-bottom: 20px; text-align: center;">
+    <video width="100%" controls>
+      <source src="https://image.howieli.tech/202409082346000.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>处理后 60fps</p>
+  </div>
+</div>
+
+---
+
+### [frame-interpolation](https://github.com/google-research/frame-interpolation)
+
+通过两张相邻的图片，生成其中间的一张照片以及生成一个视频。
+
+- 项目地址：https://github.com/google-research/frame-interpolation
+
+该项目启动需要调整依赖文件 `requirements.txt`且 Python 版本为 3.9，否则不能正常运行。
+
+```shell
+numpy==1.23.5
+tensorflow==2.15.0 # The latest should include tensorflow-gpu
+tensorflow-datasets==4.9.3
+tensorflow-addons==0.23.0
+absl-py==2.1.0
+gin-config
+parameterized
+mediapy
+scikit-image
+apache-beam
+google-cloud-bigquery-storage
+natsort
+gdown
+tqdm
+```
+
+#### 演示图片
+
+图片一：
+
+![图片一](https://image.howieli.tech/202409082031021.png)
+
+图片二：
+
+![图片二](https://image.howieli.tech/202409082031022.png)
+
+生成的中间一帧的图片：
+
+![](https://image.howieli.tech/202409082031023.png)
+
+生成的视频：
+
+<video width="50%">
+    <source src="https://image.howieli.tech/202409082031024.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+### 自备图片
+
+图片一：
+
+![图片一](https://image.howieli.tech/202409082234000.png)
+
+图片二：
+
+![图片二](https://image.howieli.tech/202409082235000.png)
+
+生成的中间一帧的图片：
+
+![](https://image.howieli.tech/202409082236000.png)
+
+生成的视频：
+
+<video width="50%">
+    <source src="https://image.howieli.tech/202409082249000.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
